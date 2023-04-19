@@ -1,3 +1,6 @@
-#heading {
-    color: rebeccapurple;
+.headingclass {
+  color: rebeccapurple;
+}
+.heading-container {
+  color: crimson;
 }
