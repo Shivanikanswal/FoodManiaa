@@ -1,0 +1,32 @@
+.headingclass {
+  color: rebeccapurple;
+}
+.heading-container {
+  color: crimson;
+}
+@media only screen and (min-width: 1440px) {
+  .logo {
+    float: left;
+    height: 139px;
+  }
+  .searchItem {
+    height: 50px;
+    background: border-box;
+    border-radius: 20px;
+    width: 70%;
+    margin-top: 42px;
+    margin-left: 40px;
+    background-color: aliceblue;
+  }
+  .user-icon {
+    float: right;
+    height: 77px;
+    width: 77px;
+    margin-top: 29px;
+    margin-right: 40px;
+  }
+  header.header {
+    border-bottom: 1px solid darkgrey;
+    height: 150px;
+  }
+}
