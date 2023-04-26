@@ -4,11 +4,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 //React Functional Component
-const Heading = () => (
-  <div id="container">
-    <h1 className="heading-container">Namaste React🚩 functional Component</h1>;
-  </div>
-);
+const Heading = () => {
+  return (
+    <div id="container">
+      <h1 className="heading-container">
+        Namaste React🚩 functional Component
+      </h1>
+    </div>
+  );
+};
 
 //Composition of components
 const Title = (
@@ -37,13 +41,15 @@ const header = (
 );
 
 //functional component
-const Header = () => (
-  <div className="title">
-    <h1>I am h1 using JSX</h1>
-    <h2>I am h2 using JSX</h2>
-    <h3>I am h3 using JSX</h3>
-  </div>
-);
+const Header = () => {
+  return (
+    <div className="title">
+      <h1>I am h1 using JSX</h1>
+      <h2>I am h2 using JSX</h2>
+      <h3>I am h3 using JSX</h3>
+    </div>
+  );
+};
 
 const rootHeader = ReactDOM.createRoot(document.getElementById("root"));
 rootHeader.render(Title);

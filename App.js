@@ -1,22 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-//React Functional Component
-const Heading = () => (
-  <div id="container">
-    <h1 className="heading-container">Namaste React🚩 functional Component</h1>;
-  </div>
-);
-
-//React Element
-const Title = (
-  <>
-    <Heading />
-    <h1 id="headingjsx" className="headingclass">
-      Namaste React❤👀 React Element
-    </h1>
-  </>
-);
+const Header = () => {
+  return (
+    <div className="header">
+      <div className="nav-items">
+        <ol>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact US</li>
+          <li>Cart</li>
+        </ol>
+      </div>
+    </div>
+  );
+};
 const approot = ReactDOM.createRoot(document.getElementById("root"));
 
-approot.render(Title);
+approot.render(<Header />);
