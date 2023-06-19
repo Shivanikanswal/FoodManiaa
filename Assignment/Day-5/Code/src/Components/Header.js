@@ -1,9 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import Logo from "../utils/img/appLogo.png";
 
 const Header = () => {
   return (
     <div className="header">
+      <div className="logo-container">
+        <img src={Logo} alt="App logo" className="logo" />
+      </div>
       <div className="nav-items">
         <ol>
           <li>Home</li>
@@ -15,6 +17,5 @@ const Header = () => {
     </div>
   );
 };
-const approot = ReactDOM.createRoot(document.getElementById("root"));
 
-approot.render(<Header />);
+export default Header;

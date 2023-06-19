@@ -28,7 +28,6 @@
   width: 205px;
   padding: 5px;
   margin: 10px;
-  height: 300px;
 }
 
 .restaurant-card:hover {
@@ -44,27 +43,8 @@ h4 {
 .restaurant-container {
   display: flex;
   flex-wrap: wrap;
+  font-size: 14px;
 }
 .food-card {
   width: 100%;
-  font-size: 12px;
-  font-family: sans-serif;
-}
-
-.shimmer-container {
-  margin-top: 45px;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.shimmer-cards {
-  background-color: #f0f0f0;
-  height: 300px;
-  width: 205px;
-  padding: 5px;
-  margin: 10px;
-}
-
-.filter {
-  display: flex;
 }
