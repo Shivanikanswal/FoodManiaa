@@ -11,10 +11,10 @@ const Restaurant = (props) => {
         alt="food image"
         className="food-card"
       />
-      <h3>{name}</h3>
-      <h4>{cuisines && cuisines.join(", ")}</h4>
-      <h4>{avgRating} stars</h4>
-      <h4>₹{costForTwo / 100} FOR TWO</h4>
+      <h3 className="rest-name">{name}</h3>
+      <h4 className="rest-cuisines">{cuisines && cuisines.join(", ")}</h4>
+      <h4 className="rating">{avgRating} stars</h4>
+      <h4 className="av-rate">₹{costForTwo / 100} FOR TWO</h4>
     </div>
   );
 };

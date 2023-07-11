@@ -16,7 +16,7 @@ const RestaurantMenu = () => {
     const data = await fetch(MENU_DATA + resId);
     const jsonData = await data.json();
 
-    console.log(jsonData);
+    //console.log(jsonData);
 
     setResMenu(jsonData.data);
   };
@@ -25,19 +25,25 @@ const RestaurantMenu = () => {
     return <Shimmer />;
   }
 
-  const { name, cuisines, costForTwoMessage } =
+  const { name, cuisines, costForTwoMessage, areaName } =
     resMenu?.cards[0]?.card?.card?.info;
 
   const { itemCards } =
     resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
-  console.log(itemCards);
+  const { lastMileTravelString } = resMenu?.cards[0]?.card?.card?.info?.sla;
+
+  console.log(resMenu);
 
   return (
-    <div>
-      <h1>{name}</h1>
-      <h3>{cuisines.join(", ")}</h3>
-      <h3>{costForTwoMessage}</h3>
+    <div className="res-menu">
+      <div className="res-wrapper-details">
+        <p className="res-name">{name}</p>
+        <p className="cuisines">{cuisines.join(", ")}</p>
+        <p className="milestravel">{areaName + ", " + lastMileTravelString}</p>
+      </div>
+      <hr className="divider-name"></hr>
+      <h3 className="costForTwoMsg">{costForTwoMessage}</h3>
       <h3>Menu</h3>
       <ul>
         {itemCards.map((item) => (

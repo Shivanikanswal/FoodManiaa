@@ -24,11 +24,11 @@ const Body = () => {
 
     const jsonData = await data.json();
 
-    //console.log(jsonData);
+    console.log(jsonData);
 
     //Optional Chaining
-    setListOfRestaurants(jsonData?.data?.cards[0]?.data?.data?.cards);
-    setFilteredListOfRests(jsonData?.data?.cards[0]?.data?.data?.cards);
+    setListOfRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
+    setFilteredListOfRests(jsonData?.data?.cards[2]?.data?.data?.cards);
   };
 
   // we need to bind the value of input text to a local state variable--why??
