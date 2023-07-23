@@ -31,7 +31,7 @@
 .restaurant-card:hover {
   cursor: pointer;
   border-color: #d3d5df;
-  box-shadow: 0 4px 7px 0 rgba(218, 220, 230, 0.6);
+  box-shadow: 2px 4px 7px 2px #85858599;
 }
 
 .restaurant-card > h3,
@@ -70,17 +70,26 @@ h4 {
 }
 
 .shimmer-container {
-  margin-top: 45px;
-  display: flex;
   flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  grid-gap: 1rem;
+  padding: 2rem 0.5rem;
 }
 
 .shimmer-cards {
   background-color: #f0f0f0;
-  height: 300px;
-  width: 205px;
-  padding: 5px;
-  margin: 10px;
+  width: 246px;
+  height: 250px;
+  margin-bottom: 80px;
+  padding: 20px 20px 28px;
+}
+
+.menu-title,
+.menu-cuisines,
+.menu-location {
+  background-color: #f0f0f0;
+  width: 200px;
 }
 
 .filter {

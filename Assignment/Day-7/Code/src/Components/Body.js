@@ -24,7 +24,7 @@ const Body = () => {
 
     const jsonData = await data.json();
 
-    //console.log(jsonData);
+    console.log(jsonData);
 
     //Optional Chaining
     setListOfRestaurants(jsonData?.data?.cards[0]?.data?.data?.cards);

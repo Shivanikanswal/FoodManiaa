@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import ShimmerMenu from "./ShimmerMenu";
+
 import { useParams } from "react-router-dom";
 import { MENU_DATA } from "../utils/constants";
 
@@ -22,7 +24,7 @@ const RestaurantMenu = () => {
   };
 
   if (resMenu === null) {
-    return <Shimmer />;
+    return <ShimmerMenu />;
   }
 
   const { name, cuisines, costForTwoMessage, areaName } =
@@ -33,7 +35,7 @@ const RestaurantMenu = () => {
 
   const { lastMileTravelString } = resMenu?.cards[0]?.card?.card?.info?.sla;
 
-  console.log(resMenu);
+  //console.log(resMenu);
 
   return (
     <div className="res-menu">

@@ -24,7 +24,7 @@ const Body = () => {
 
     const jsonData = await data.json();
 
-    console.log(jsonData);
+    //console.log(jsonData);
 
     //Optional Chaining
     setListOfRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
@@ -69,7 +69,7 @@ const Body = () => {
             className="btn-filter"
             onClick={() => {
               const filteredList = filteredListOfRests.filter(
-                (res) => res.data.avgRating > 3.5
+                (res) => res.data.avgRating > 4.0
               );
               setFilteredListOfRests(filteredList);
             }}
