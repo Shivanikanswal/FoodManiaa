@@ -1,4 +1,4 @@
-import Logo from "../utils/img/appLogo.png";
+import Logo from "../utils/img/food-logo.jpg";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 

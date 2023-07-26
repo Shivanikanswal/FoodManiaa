@@ -15,12 +15,6 @@ class UserDetailClass extends Component {
   }
 
   async componentDidMount() {
-    // const userData = await fetch("https://api.github.com/users/Shivanikanswal");
-    // const jsonData = await userData.json();
-    // console.log(jsonData);
-    // this.setState({
-    // userdataAssign: jsonData,
-    // });
     //console.log("Child Component did mount " + this.props.name);
     this.timer = setInterval(() => {
       console.log("Inteval set");

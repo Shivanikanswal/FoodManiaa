@@ -24,7 +24,7 @@ const Body = () => {
 
     const jsonData = await data.json();
 
-    //console.log(jsonData);
+    console.log(jsonData);
 
     //Optional Chaining
     setListOfRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
@@ -39,9 +39,23 @@ const Body = () => {
   ) : (
     <div className="main-body">
       <div className="filter">
+        <div className="sort-filter">
+          <button
+            className="btn-filter"
+            onClick={() => {
+              const filteredList = filteredListOfRests.filter(
+                (res) => res.data.avgRating > 4.0
+              );
+              setFilteredListOfRests(filteredList);
+            }}
+          >
+            Sort by Top Rated Restaurants
+          </button>
+        </div>
         <div className="search">
           <input
             type="text"
+            placeholder="Search"
             className="search-box"
             value={searchTxt}
             onChange={(e) => {
@@ -62,19 +76,6 @@ const Body = () => {
             }}
           >
             Search
-          </button>
-        </div>
-        <div>
-          <button
-            className="btn-filter"
-            onClick={() => {
-              const filteredList = filteredListOfRests.filter(
-                (res) => res.data.avgRating > 4.0
-              );
-              setFilteredListOfRests(filteredList);
-            }}
-          >
-            Sort by Top Rated Restaurants
           </button>
         </div>
       </div>
