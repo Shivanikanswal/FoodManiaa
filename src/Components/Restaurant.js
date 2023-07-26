@@ -1,4 +1,5 @@
 import { CDN_URL } from "../utils/constants";
+import RatingStyle from "./RatingStyle";
 
 const Restaurant = (props) => {
   const { resData } = props;
@@ -21,7 +22,7 @@ const Restaurant = (props) => {
       <h4 className="rest-cuisines">{cuisines && cuisines.join(", ")}</h4>
       <div className="3Dvcls">
         <div className="rtngAv">
-          <span className="iconStr"></span>
+          <RatingStyle />
           <span className="rtng">{avgRating}</span>
         </div>
         <div>|</div>

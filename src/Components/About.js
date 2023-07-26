@@ -20,7 +20,7 @@ class About extends Component {
           <h1>Welcome to Food Mania</h1>
         </div>
         <div>
-          <UserDetails name={"First Class"} location={"Dehradun"} />
+          <UserDetailClass name={"First Class"} location={"Dehradun"} />
         </div>
       </div>
     );

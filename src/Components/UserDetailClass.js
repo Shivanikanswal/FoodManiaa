@@ -15,27 +15,18 @@ class UserDetailClass extends Component {
   }
 
   async componentDidMount() {
-    // const userData = await fetch("https://api.github.com/users/Shivanikanswal");
-    // const jsonData = await userData.json();
-    // console.log(jsonData);
-    // this.setState({
-    // userdataAssign: jsonData,
-    // });
+    const userData = await fetch("https://api.github.com/users/Shivanikanswal");
+    const jsonData = await userData.json();
+    //console.log(jsonData);
+    this.setState({
+      userdataAssign: jsonData,
+    });
     //console.log("Child Component did mount " + this.props.name);
-    this.timer = setInterval(() => {
-      console.log("Inteval set");
-    }, 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timer); //unmounting
   }
 
   render() {
     const { name, location, avatar_url, bio } = this.state.userdataAssign;
     const { count } = this.state;
-
-    //const {bio, name, location} = ;
 
     //console.log("Child Render " + name);
 

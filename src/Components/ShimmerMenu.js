@@ -1,7 +1,7 @@
 const ShimmerMenu = () => {
   return (
     <div className="shimmermenu-container">
-      <div classname="menu-title"></div>
+      <div className="menu-title"></div>
       <p className="menu-cuisines"></p>
       <p className="menu-location"></p>
     </div>
