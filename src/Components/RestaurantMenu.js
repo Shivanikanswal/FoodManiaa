@@ -1,27 +1,11 @@
-import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import ShimmerMenu from "./ShimmerMenu";
-
 import { useParams } from "react-router-dom";
-import { MENU_DATA } from "../utils/constants";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
   const { resId } = useParams();
-
-  const [resMenu, setResMenu] = useState(null);
-
-  const fetchMenu = async () => {
-    const data = await fetch(MENU_DATA + resId);
-    const jsonData = await data.json();
-
-    //console.log(jsonData);
-
-    setResMenu(jsonData.data);
-  };
+  const resMenu = useRestaurantMenu(resId);
 
   if (resMenu === null) {
     return <ShimmerMenu />;
@@ -33,16 +17,16 @@ const RestaurantMenu = () => {
   const { itemCards } =
     resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
-  const { lastMileTravelString } = resMenu?.cards[0]?.card?.card?.info?.sla;
+  //const { lastMileTravelString } = resMenu?.cards[0]?.card?.card?.info?.sla;
 
-  //console.log(resMenu);
+  console.log(resMenu);
 
   return (
     <div className="res-menu">
       <div className="res-wrapper-details">
         <p className="res-name">{name}</p>
         <p className="cuisines">{cuisines.join(", ")}</p>
-        <p className="milestravel">{areaName + ", " + lastMileTravelString}</p>
+        <p className="milestravel">{areaName}</p>
       </div>
       <hr className="divider-name"></hr>
       <h3 className="costForTwoMsg">{costForTwoMessage}</h3>

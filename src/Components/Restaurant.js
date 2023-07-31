@@ -3,14 +3,8 @@ import RatingStyle from "./RatingStyle";
 
 const Restaurant = (props) => {
   const { resData } = props;
-  const {
-    name,
-    cuisines,
-    cloudinaryImageId,
-    costForTwo,
-    avgRating,
-    slaString,
-  } = resData?.data;
+  const { name, cuisines, cloudinaryImageId, costForTwo, avgRating, sla } =
+    resData?.info;
   return (
     <div className="restaurant-card">
       <img
@@ -26,9 +20,9 @@ const Restaurant = (props) => {
           <span className="rtng">{avgRating}</span>
         </div>
         <div>|</div>
-        <div className="sla">{slaString}</div>
+        <div className="sla">{sla.slaString}</div>
         <div>|</div>
-        <div className="rtAv">₹{costForTwo / 100} FOR TWO</div>
+        <div className="rtAv">{costForTwo}</div>
       </div>
     </div>
   );
