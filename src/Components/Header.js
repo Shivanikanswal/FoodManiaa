@@ -21,8 +21,12 @@ const Header = () => {
 
   return (
     <div className="header shadow-lg shadow-slate-300/50 justify-between flex h-28 items-center">
-      <div className="logo-container">
-        <img src={Logo} alt="App logo" className="logo h-28 w-52" />
+      <div className="logo-container w-28 ml-4">
+        <img
+          src="https://www.apnafoodmania.com/logo.png"
+          alt="App logo"
+          className=" h-24"
+        />
       </div>
       <div className="nav-items py-5 px-8">
         <ol className="flex">
