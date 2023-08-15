@@ -11,7 +11,8 @@ const Body = () => {
   const [filteredListOfRests, setFilteredListOfRests] = useState([]);
 
   const [searchTxt, setSearchText] = useState([""]);
-  // console.log(listOfRestaurants);
+
+  //const RestaurantCardPromoted = withPromotedLabel(Restaurant);
 
   useEffect(() => {
     fetchData();
@@ -19,7 +20,6 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      //"https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.0869281&lng=78.2676116&page_type=DESKTOP_WEB_LISTING"
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9121181&lng=77.6445548&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
@@ -43,43 +43,55 @@ const Body = () => {
   if (status === false)
     return <h1>You are offline check your internet connection</h1>;
 
-  // we need to bind the value of input text to a local state variable--why??
-
   //conditional rendering
   return listOfRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="main-body">
-      <div className="filter">
-        <div className="search">
-          <input
-            type="text"
-            placeholder="Search"
-            className="search-box"
-            value={searchTxt}
-            onChange={(e) => {
-              setSearchText(e.target.value);
-            }}
-          />
-          <button
-            onClick={() => {
-              console.log(filteredListOfRests);
-              const filteredListOfRest = listOfRestaurants.filter((res) =>
-                res.data.name.toLowerCase().includes(searchTxt.toLowerCase())
-              );
-
-              setFilteredListOfRests(filteredListOfRest);
-              //Filter the restaurant cards and update the UI.
-              //For this we need the 'value' of search text.
-              //therefore, we need to bind the value to a local state variable so that we can track what user has typed in that text box.
-            }}
-          >
-            Search
-          </button>
+      <div className="filter flex justify-evenly items-center mt-8">
+        <div className="search flex rounded-md outline outline-1 shadow-lg shadow-slate-300">
+          <div>
+            <input
+              type="text"
+              placeholder="Search..."
+              className="search-box bg-neutral-100 w-96 h-10 pl-4 focus:outline-none"
+              value={searchTxt}
+              onChange={(e) => {
+                setSearchText(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <button
+              className="bg-neutral-100 px-2 h-10 border-l border-black text-black"
+              onClick={() => {
+                // console.log(filteredListOfRests);
+                const filteredListOfRest = listOfRestaurants.filter((res) =>
+                  res.data.name.toLowerCase().includes(searchTxt.toLowerCase())
+                );
+                setFilteredListOfRests(filteredListOfRest);
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 opacity-50"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
-        <div className="sort-filter">
+        <div className="sort-filter ml-80">
           <label
-            className="toggle-switch"
+            className="toggle-switch relative inline-flex items-center cursor-pointer"
             onClick={() => {
               const filteredList = filteredListOfRests.filter(
                 (res) => res.info.avgRating > 4.2
@@ -87,13 +99,15 @@ const Body = () => {
               setFilteredListOfRests(filteredList);
             }}
           >
-            <input type="checkbox" />
-            <span className="slider round"></span>
+            <input type="checkbox" className="sr-only peer" />
+            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-700"></div>
+            <span className="slider round ml-3 text-sm font-medium text-gray-900">
+              Top Rated Restaurants
+            </span>
           </label>
-          <span>Top Rated Restaurants</span>
         </div>
       </div>
-      <div className="restaurant-container">
+      <div className="restaurant-container flex flex-wrap justify-center gap-5 py-4 px-2 mt-9">
         {filteredListOfRests.map((restaurant) => {
           return (
             <Link

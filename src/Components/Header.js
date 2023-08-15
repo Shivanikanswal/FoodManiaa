@@ -20,25 +20,25 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="header">
+    <div className="header shadow-lg shadow-slate-300/50 justify-between flex h-28 items-center">
       <div className="logo-container">
-        <img src={Logo} alt="App logo" className="logo" />
+        <img src={Logo} alt="App logo" className="logo h-28 w-52" />
       </div>
-      <div className="nav-items">
-        <ol>
-          <li>
+      <div className="nav-items py-5 px-8">
+        <ol className="flex">
+          <li className="m-3 p-3 text-base font-medium font-serif">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="m-3 p-3 text-base font-medium font-serif">
             <Link to="/about">About Us</Link>
           </li>
-          <li>
+          <li className="m-3 p-3 text-base font-medium font-serif">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li>
+          <li className="m-3 p-3 text-base font-medium font-serif">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li>Cart</li>
+          <li className="m-3 p-3 text-base font-medium font-serif">Cart</li>
           <button
             className="login-btn"
             onClick={() => {
