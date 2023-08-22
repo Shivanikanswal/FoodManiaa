@@ -1,1 +1,1 @@
-Namaste React
+https://foodmaniaa.netlify.app/
