@@ -1,4 +1,4 @@
-import Restaurant from "./Restaurant";
+import Restaurant, { withDiscountLabel } from "./Restaurant";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -12,7 +12,7 @@ const Body = () => {
 
   const [searchTxt, setSearchText] = useState([""]);
 
-  //const RestaurantCardPromoted = withPromotedLabel(Restaurant);
+  const RestaurantCardDiscount = withDiscountLabel(Restaurant);
 
   useEffect(() => {
     fetchData();
@@ -114,7 +114,14 @@ const Body = () => {
               to={"/restaurants/" + restaurant.info.id}
               key={restaurant.info.id}
             >
-              <Restaurant resData={restaurant} />
+              {
+                restaurant.info.aggregatedDiscountInfoV3.header ? (
+                  <RestaurantCardDiscount resData={restaurant} />
+                ) : (
+                  <Restaurant resData={restaurant} />
+                )
+                //if discount is applied then show the percent off on the item.
+              }
             </Link>
           );
         })}

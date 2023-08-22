@@ -4,16 +4,6 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const [btnNameReact, setbtnNameReact] = useState("Login");
 
-  console.log("Header called");
-  // 3 scenarios of useEffect()
-  // useEffect(() => {
-  // console.log("use effect called when dependency is btnNameReact");
-  // }, [btnNameReact]);
-
-  // useEffect(() => {
-  // console.log("use effect called without dependency");
-  // });
-
   useEffect(() => {
     console.log("use effect called when dependency is empty=[]");
   }, []);
@@ -29,19 +19,21 @@ const Header = () => {
       </div>
       <div className="nav-items py-5 px-8">
         <ol className="flex">
-          <li className="m-3 p-3 text-base font-medium font-serif">
+          <li className="m-3 p-3 text-base font-medium font-serif hover:text-amber-600">
             <Link to="/">Home</Link>
           </li>
-          <li className="m-3 p-3 text-base font-medium font-serif">
+          <li className="m-3 p-3 text-base font-medium font-serif hover:text-amber-600">
             <Link to="/about">About Us</Link>
           </li>
-          <li className="m-3 p-3 text-base font-medium font-serif">
+          <li className="m-3 p-3 text-base font-medium font-serif hover:text-amber-600">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li className="m-3 p-3 text-base font-medium font-serif">
+          <li className="m-3 p-3 text-base font-medium font-serif hover:text-amber-600">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="m-3 p-3 text-base font-medium font-serif">Cart</li>
+          <li className="m-3 p-3 text-base font-medium font-serif hover:text-amber-600">
+            Cart
+          </li>
           <button
             className="login-btn"
             onClick={() => {

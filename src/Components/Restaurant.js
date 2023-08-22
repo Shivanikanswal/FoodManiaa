@@ -33,8 +33,22 @@ const Restaurant = (props) => {
   );
 };
 
-// export const withPromotedLabel = (Restaurant) => {
-// return <PromotedRestaurant />;
-// };
+//Higher Order Component
+// input=> Restaurant  output=> RestaurantCardDiscount
+
+export const withDiscountLabel = (Restaurant) => {
+  return (props) => {
+    const { resData } = props;
+    const { header, subHeader } = resData?.info?.aggregatedDiscountInfoV3;
+    return (
+      <div>
+        <label className="absolute text-lg mt-[8.2rem] ml-[1.9rem] text-white font-bold bg-gradient-to-t from-black to-transparent pt-[17px] pl-2">
+          {header + " " + subHeader}
+        </label>
+        <Restaurant {...props} />
+      </div>
+    );
+  };
+};
 
 export default Restaurant;
