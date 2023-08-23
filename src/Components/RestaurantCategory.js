@@ -5,7 +5,7 @@ const RestaurantCategory = ({ data }) => {
     //Accordion Header
     <div>
       <div className="shadow-md m-3 p-1">
-        <div className=" flex justify-between p-2 m-2">
+        <div className=" flex justify-between p-3 m-2">
           <span className="font-bold text-lg">
             {data.title}({data.itemCards.length})
           </span>
