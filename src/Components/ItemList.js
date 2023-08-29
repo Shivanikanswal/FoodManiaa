@@ -23,11 +23,11 @@ const ItemList = ({ items }) => {
             </p>
           </div>
           <div className="p-3 m-3">
-            <button className="text-white bg-black absolute h-9 w-[66px] rounded-lg ml-[25px] mt-[60px]">
+            <button className="text-white bg-gray-800 absolute h-9 w-[66px] rounded-lg ml-[25px] mt-[60px]">
               Add +
             </button>
             <img
-              className="max-w-[8rem] w-[118px] h-[86px]"
+              className="max-w-[8rem] w-[118px] h-[86px] rounded-lg"
               src={
                 "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/" +
                 item.card.info.imageId
