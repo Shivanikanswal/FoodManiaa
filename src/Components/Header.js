@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [btnNameReact, setbtnNameReact] = useState("Login");
+
+  const { loggedInUser } = useContext(UserContext);
 
   useEffect(() => {
     console.log("use effect called when dependency is empty=[]");
@@ -44,6 +47,7 @@ const Header = () => {
           >
             {btnNameReact}
           </button>
+          <li>{loggedInUser}</li>
         </ol>
       </div>
     </div>

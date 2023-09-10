@@ -1,8 +1,9 @@
 import Restaurant, { withDiscountLabel } from "./Restaurant";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   //Local state variable
@@ -42,6 +43,8 @@ const Body = () => {
 
   if (status === false)
     return <h1>You are offline check your internet connection</h1>;
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   //conditional rendering
   return listOfRestaurants?.length === 0 ? (
@@ -89,6 +92,16 @@ const Body = () => {
             </button>
           </div>
         </div>
+        <div>
+          <label>UserName:</label>
+          <input
+            className=" border border-black"
+            value={loggedInUser}
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+          />
+        </div>
         <div className="sort-filter ml-80">
           <label
             className="toggle-switch relative inline-flex items-center cursor-pointer"
@@ -115,7 +128,7 @@ const Body = () => {
               key={restaurant.info.id}
             >
               {
-                restaurant.info.aggregatedDiscountInfoV3.header ? (
+                restaurant.info?.aggregatedDiscountInfoV3?.header ? (
                   <RestaurantCardDiscount resData={restaurant} />
                 ) : (
                   <Restaurant resData={restaurant} />

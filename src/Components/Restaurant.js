@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
 import RatingStyle from "./RatingStyle";
+import UserContext from "../utils/UserContext";
 //import PromotedRestaurant from "./PromotedRestaurant";
 
 const Restaurant = (props) => {
+  const { loggedInUser } = useContext(UserContext);
   const { resData } = props;
   const { name, cuisines, cloudinaryImageId, costForTwo, avgRating, sla } =
     resData?.info;
@@ -28,6 +31,7 @@ const Restaurant = (props) => {
         <div className="sla">{sla.slaString}</div>
         <div>|</div>
         <div className="rtAv">{costForTwo}</div>
+        <div className="rtAv">{loggedInUser}</div>
       </div>
     </div>
   );
