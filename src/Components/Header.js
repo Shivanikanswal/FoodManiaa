@@ -1,11 +1,14 @@
 import { useContext, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [btnNameReact, setbtnNameReact] = useState("Login");
 
-  const { loggedInUser } = useContext(UserContext);
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
+
+  //const { loggedInUser } = useContext(UserContext);
 
   useEffect(() => {
     console.log("use effect called when dependency is empty=[]");
@@ -35,7 +38,7 @@ const Header = () => {
             <Link to="/grocery">Grocery</Link>
           </li>
           <li className="m-3 p-3 text-base font-medium font-serif hover:text-amber-600">
-            Cart
+            <Link to="/cart">Cart({cartItems.length})</Link>
           </li>
           <button
             className="login-btn"
@@ -47,7 +50,7 @@ const Header = () => {
           >
             {btnNameReact}
           </button>
-          <li>{loggedInUser}</li>
+          {/* <li>{loggedInUser}</li> */}
         </ol>
       </div>
     </div>

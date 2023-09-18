@@ -92,16 +92,6 @@ const Body = () => {
             </button>
           </div>
         </div>
-        <div>
-          <label>UserName:</label>
-          <input
-            className=" border border-black"
-            value={loggedInUser}
-            onChange={(e) => {
-              setUserName(e.target.value);
-            }}
-          />
-        </div>
         <div className="sort-filter ml-80">
           <label
             className="toggle-switch relative inline-flex items-center cursor-pointer"
