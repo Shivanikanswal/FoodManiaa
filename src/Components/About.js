@@ -5,15 +5,9 @@ import UserDetails from "./UserDetails";
 class About extends Component {
   constructor(props) {
     super(props);
-    //console.log("Parent Constructor");
   }
-
-  componentDidMount() {
-    //console.log("Parent Component did mount");
-  }
-
+  componentDidMount() {}
   render() {
-    //console.log("Parent Render");
     return (
       <div className="">
         <div className="about-us">

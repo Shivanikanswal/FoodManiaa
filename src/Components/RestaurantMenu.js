@@ -21,8 +21,6 @@ const RestaurantMenu = () => {
 
   const { itemCards } = { cards }?.cards[1]?.card?.card;
 
-  console.log(itemCards);
-
   const categoriesMenu = cards.filter(
     (item) =>
       item.card?.card?.["@type"] ===

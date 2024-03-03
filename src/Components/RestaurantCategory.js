@@ -1,6 +1,5 @@
 import ItemList from "./ItemList";
 const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
-  //const [showItems, setShowItems] = useState(false);
   const handleClick = () => {
     setShowIndex();
   };

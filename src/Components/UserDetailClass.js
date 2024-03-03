@@ -11,24 +11,19 @@ class UserDetailClass extends Component {
         location: "Default",
       },
     };
-    //console.log("Child Constructor " + this.props.name);
   }
 
   async componentDidMount() {
     const userData = await fetch("https://api.github.com/users/Shivanikanswal");
     const jsonData = await userData.json();
-    //console.log(jsonData);
     this.setState({
       userdataAssign: jsonData,
     });
-    //console.log("Child Component did mount " + this.props.name);
   }
 
   render() {
     const { name, location, avatar_url, bio } = this.state.userdataAssign;
     const { count } = this.state;
-
-    //console.log("Child Render " + name);
 
     return (
       <div className="userBlock">

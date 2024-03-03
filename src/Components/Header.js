@@ -6,13 +6,6 @@ const Header = () => {
   const [btnNameReact, setbtnNameReact] = useState("Login");
 
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
-
-  //const { loggedInUser } = useContext(UserContext);
-
-  useEffect(() => {
-    console.log("use effect called when dependency is empty=[]");
-  }, []);
 
   return (
     <div className="header shadow-lg shadow-slate-300/50 justify-between flex h-28 items-center">
@@ -34,9 +27,9 @@ const Header = () => {
           <li className="m-3 p-3 text-base font-medium font-serif hover:text-amber-600">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li className="m-3 p-3 text-base font-medium font-serif hover:text-amber-600">
-            <Link to="/grocery">Grocery</Link>
-          </li>
+          {/* <li className="m-3 p-3 text-base font-medium font-serif hover:text-amber-600"> */}
+          {/* <Link to="/grocery">Grocery</Link> */}
+          {/* </li> */}
           <li className="m-3 p-3 text-base font-medium font-serif hover:text-amber-600">
             <Link to="/cart">Cart({cartItems.length})</Link>
           </li>
@@ -50,7 +43,6 @@ const Header = () => {
           >
             {btnNameReact}
           </button>
-          {/* <li>{loggedInUser}</li> */}
         </ol>
       </div>
     </div>

@@ -1,12 +1,12 @@
 import Restaurant, { withDiscountLabel } from "./Restaurant";
 import Shimmer from "./Shimmer";
+import { SWIGGY_URL, CORS } from "../utils/constants";
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 
 const Body = () => {
-  //Local state variable
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
 
   const [filteredListOfRests, setFilteredListOfRests] = useState([]);
@@ -20,21 +20,16 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9121181&lng=77.6445548&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(CORS + encodeURIComponent(SWIGGY_URL));
 
     const jsonData = await data.json();
 
-    console.log(jsonData);
-
-    //Optional Chaining
     setListOfRestaurants(
-      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
     setFilteredListOfRests(
-      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
   };
