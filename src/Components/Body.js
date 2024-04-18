@@ -20,7 +20,7 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch("/api/" + CORS + SWIGGY_URL);
+    const data = await fetch("/api/" + SWIGGY_URL);
     console.log(data);
     // CORS + encodeURIComponent(SWIGGY_URL)
     const jsonData = await data.json();
