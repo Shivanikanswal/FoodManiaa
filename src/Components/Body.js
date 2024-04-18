@@ -20,8 +20,9 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(CORS + encodeURIComponent(SWIGGY_URL));
-
+    const data = await fetch(SWIGGY_URL);
+    console.log(data);
+    // CORS + encodeURIComponent(SWIGGY_URL)
     const jsonData = await data.json();
 
     setListOfRestaurants(

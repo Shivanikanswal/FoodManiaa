@@ -9,15 +9,16 @@ const RestaurantMenu = () => {
   const [showIndex, setShowIndex] = useState(null);
   const { resId } = useParams();
   const resMenu = useRestaurantMenu(resId);
+  console.log(resMenu);
 
   if (resMenu === null) {
     return <ShimmerMenu />;
   }
 
   const { name, cuisines, costForTwoMessage, areaName } =
-    resMenu?.cards[0]?.card?.card?.info;
+    resMenu?.cards[2]?.card?.card?.info;
 
-  const { cards } = resMenu.cards[2].groupedCard.cardGroupMap.REGULAR;
+  const { cards } = resMenu.cards[4].groupedCard.cardGroupMap.REGULAR;
 
   const { itemCards } = { cards }?.cards[1]?.card?.card;
 

@@ -13,7 +13,7 @@ const Restaurant = (props) => {
       <img
         src={CDN_URL + cloudinaryImageId}
         alt="food image"
-        className="w-full rounded-xl"
+        className="w-full rounded-xl h-44 object-cover"
       />
       <h3 className="rest-name text-inherit font-semibold text-base mt-3 mb-1">
         {name}
@@ -44,7 +44,7 @@ export const withDiscountLabel = (Restaurant) => {
     const { header, subHeader } = resData?.info?.aggregatedDiscountInfoV3;
     return (
       <div>
-        <label className="absolute text-lg mt-[8.2rem] ml-[1.9rem] text-white font-bold bg-gradient-to-t from-black to-transparent pt-[17px] pl-2">
+        <label className="absolute text-lg mt-[8.2rem] ml-[1.9rem] text-white font-bold bg-gradient-to-t from-black to-transparent pt-9 pl-2">
           {header + " " + subHeader}
         </label>
         <Restaurant {...props} />
